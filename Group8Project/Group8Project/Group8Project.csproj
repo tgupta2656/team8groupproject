@@ -134,10 +134,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CandidatePoliciesController.cs" />
     <Compile Include="Controllers\CandidatesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KeyDatesController.cs" />
-    <Compile Include="Controllers\PolicyController.cs" />
     <Compile Include="Controllers\VotingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -251,6 +251,11 @@
     <Content Include="Views\Candidates\Details.cshtml" />
     <Content Include="Views\Candidates\Edit.cshtml" />
     <Content Include="Views\Candidates\Index.cshtml" />
+    <Content Include="Views\CandidatePolicies\Create.cshtml" />
+    <Content Include="Views\CandidatePolicies\Delete.cshtml" />
+    <Content Include="Views\CandidatePolicies\Details.cshtml" />
+    <Content Include="Views\CandidatePolicies\Edit.cshtml" />
+    <Content Include="Views\CandidatePolicies\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

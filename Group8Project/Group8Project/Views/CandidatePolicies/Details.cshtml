@@ -1,0 +1,42 @@
+﻿@model Group8Project.Models.CandidatePolicy
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CandidatePolicy</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PolicyDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PolicyDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CandidateTable.CandidateName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CandidateTable.CandidateName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PolicyyTable.PolicyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PolicyyTable.PolicyName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CandidatePolicyID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
