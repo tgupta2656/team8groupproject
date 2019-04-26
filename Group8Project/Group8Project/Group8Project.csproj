@@ -134,6 +134,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CandidatesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KeyDatesController.cs" />
     <Compile Include="Controllers\PolicyController.cs" />
@@ -245,6 +246,11 @@
     <Content Include="Views\KeyDates\Index.cshtml" />
     <Content Include="Views\Policy\Index.cshtml" />
     <Content Include="Views\Voting\Index.cshtml" />
+    <Content Include="Views\Candidates\Create.cshtml" />
+    <Content Include="Views\Candidates\Delete.cshtml" />
+    <Content Include="Views\Candidates\Details.cshtml" />
+    <Content Include="Views\Candidates\Edit.cshtml" />
+    <Content Include="Views\Candidates\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

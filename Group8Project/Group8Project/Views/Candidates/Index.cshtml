@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Group8Project.Models.CandidateTable>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CandidateName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CandidateParty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CandidateAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CandidateGender)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CandidateName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CandidateParty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CandidateAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CandidateGender)
+        </td>
+        
+    </tr>
+}
+
+</table>

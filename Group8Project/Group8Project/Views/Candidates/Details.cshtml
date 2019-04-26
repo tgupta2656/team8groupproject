@@ -1,0 +1,50 @@
+﻿@model Group8Project.Models.CandidateTable
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CandidateTable</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CandidateName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CandidateName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CandidateParty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CandidateParty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CandidateAge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CandidateAge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CandidateGender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CandidateGender)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CandidateID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
