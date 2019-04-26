@@ -1,33 +1,31 @@
 ﻿@model IEnumerable<Group8Project.Models.CandidatePolicy>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Policies";
 }
 
-<h2>Index</h2>
+<h2>Policies</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.PolicyDescription)
-        </th>
+
         <th>
             @Html.DisplayNameFor(model => model.CandidateTable.CandidateName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PolicyyTable.PolicyName)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PolicyDescription)
+        </th>
+
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.PolicyDescription)
-        </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.CandidateTable.CandidateName)
         </td>
@@ -35,10 +33,9 @@
             @Html.DisplayFor(modelItem => item.PolicyyTable.PolicyName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CandidatePolicyID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CandidatePolicyID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CandidatePolicyID })
-        </td>
+            @Html.DisplayFor(modelItem => item.PolicyDescription)
+        </td> 
+
     </tr>
 }
 
