@@ -24,25 +24,21 @@
         <th>
             @Html.DisplayNameFor(model => model.CandidateAge)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CandidateGender)
-        </th>
+       
 
-        <th>
-            @Html.DisplayNameFor(model => model.CandidateWebsite) 
-
+      
 
        
-        <th>
-
-            @Html.DisplayNameFor(model => model.CandidatePicture) 
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+      
         <td>
-            @Html.DisplayFor(modelItem => item.CandidateName)
-        </td>
+            <img style="width:75px; height: 100px; " src="@item.CandidatePicture" />
+
+        </td> 
+
         <td>
 
             <a target="_blank" href=@item.CandidateWebsite> @Html.DisplayFor(modelItem => item.CandidateName) </a>
@@ -55,14 +51,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.CandidateAge)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CandidateGender)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CandidateWebsite)  
-
-        </td>
-
+       
 
 
     </tr>
