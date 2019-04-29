@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Group8Project.Models.CandidateTable>
+
+@{
+    ViewBag.Title = "Candidates";
+}
+
+<h2>Candidates</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+
+            @Html.DisplayNameFor(model => model.CandidatePicture)
+
+        </th> 
+
+        <th>
+            @Html.DisplayNameFor(model => model.CandidateName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CandidateParty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CandidateAge)
+        </th>
+       
+
+      
+
+       
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+      
+        <td>
+            <img style="width:75px; height: 100px; " src="@item.CandidatePicture" />
+
+        </td> 
+
+        <td>
+
+            <a target="_blank" href=@item.CandidateWebsite> @Html.DisplayFor(modelItem => item.CandidateName) </a>
+
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.CandidateParty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CandidateAge)
+        </td>
+       
+
+
+    </tr>
+}
+
+</table>

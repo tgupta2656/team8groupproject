@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DB_128040_group8Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CandidatePolicy">
+          <Key>
+            <PropertyRef Name="CandidatePolicyID" />
+          </Key>
+          <Property Name="CandidatePolicyID" Type="int" Nullable="false" />
+          <Property Name="PolicyID" Type="int" Nullable="false" />
+          <Property Name="CandidateID" Type="int" Nullable="false" />
+          <Property Name="PolicyDescription" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="CandidateTable">
+          <Key>
+            <PropertyRef Name="CandidateID" />
+          </Key>
+          <Property Name="CandidateID" Type="int" Nullable="false" />
+          <Property Name="CandidateName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CandidateParty" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CandidateAge" Type="int" />
+          <Property Name="CandidateGender" Type="varchar" MaxLength="50" />
+          <Property Name="CandidatePicture" Type="varchar(max)" />
+          <Property Name="CandidateWebsite" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="PolicyyTable">
+          <Key>
+            <PropertyRef Name="PolicyID" />
+          </Key>
+          <Property Name="PolicyID" Type="int" Nullable="false" />
+          <Property Name="PolicyName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PolicyDescription" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_CandidatePolicy_CandidateTable">
+          <End Role="CandidateTable" Type="Self.CandidateTable" Multiplicity="1" />
+          <End Role="CandidatePolicy" Type="Self.CandidatePolicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CandidateTable">
+              <PropertyRef Name="CandidateID" />
+            </Principal>
+            <Dependent Role="CandidatePolicy">
+              <PropertyRef Name="CandidateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CandidatePolicy_PolicyyTable">
+          <End Role="PolicyyTable" Type="Self.PolicyyTable" Multiplicity="1" />
+          <End Role="CandidatePolicy" Type="Self.CandidatePolicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PolicyyTable">
+              <PropertyRef Name="PolicyID" />
+            </Principal>
+            <Dependent Role="CandidatePolicy">
+              <PropertyRef Name="PolicyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_128040_group8ModelStoreContainer">
+          <EntitySet Name="CandidatePolicy" EntityType="Self.CandidatePolicy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CandidateTable" EntityType="Self.CandidateTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PolicyyTable" EntityType="Self.PolicyyTable" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CandidatePolicy_CandidateTable" Association="Self.FK_CandidatePolicy_CandidateTable">
+            <End Role="CandidateTable" EntitySet="CandidateTable" />
+            <End Role="CandidatePolicy" EntitySet="CandidatePolicy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CandidatePolicy_PolicyyTable" Association="Self.FK_CandidatePolicy_PolicyyTable">
+            <End Role="PolicyyTable" EntitySet="PolicyyTable" />
+            <End Role="CandidatePolicy" EntitySet="CandidatePolicy" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_128040_group8Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CandidatePolicy">
+          <Key>
+            <PropertyRef Name="CandidatePolicyID" />
+          </Key>
+          <Property Name="CandidatePolicyID" Type="Int32" Nullable="false" />
+          <Property Name="PolicyID" Type="Int32" Nullable="false" />
+          <Property Name="CandidateID" Type="Int32" Nullable="false" />
+          <Property Name="PolicyDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CandidateTable" Relationship="Self.FK_CandidatePolicy_CandidateTable" FromRole="CandidatePolicy" ToRole="CandidateTable" />
+          <NavigationProperty Name="PolicyyTable" Relationship="Self.FK_CandidatePolicy_PolicyyTable" FromRole="CandidatePolicy" ToRole="PolicyyTable" />
+        </EntityType>
+        <EntityType Name="CandidateTable">
+          <Key>
+            <PropertyRef Name="CandidateID" />
+          </Key>
+          <Property Name="CandidateID" Type="Int32" Nullable="false" />
+          <Property Name="CandidateName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CandidateParty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CandidateAge" Type="Int32" />
+          <Property Name="CandidateGender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CandidatePolicies" Relationship="Self.FK_CandidatePolicy_CandidateTable" FromRole="CandidateTable" ToRole="CandidatePolicy" />
+          <Property Name="CandidatePicture" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CandidateWebsite" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PolicyyTable">
+          <Key>
+            <PropertyRef Name="PolicyID" />
+          </Key>
+          <Property Name="PolicyID" Type="Int32" Nullable="false" />
+          <Property Name="PolicyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PolicyDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CandidatePolicies" Relationship="Self.FK_CandidatePolicy_PolicyyTable" FromRole="PolicyyTable" ToRole="CandidatePolicy" />
+        </EntityType>
+        <Association Name="FK_CandidatePolicy_CandidateTable">
+          <End Role="CandidateTable" Type="Self.CandidateTable" Multiplicity="1" />
+          <End Role="CandidatePolicy" Type="Self.CandidatePolicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CandidateTable">
+              <PropertyRef Name="CandidateID" />
+            </Principal>
+            <Dependent Role="CandidatePolicy">
+              <PropertyRef Name="CandidateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CandidatePolicy_PolicyyTable">
+          <End Role="PolicyyTable" Type="Self.PolicyyTable" Multiplicity="1" />
+          <End Role="CandidatePolicy" Type="Self.CandidatePolicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PolicyyTable">
+              <PropertyRef Name="PolicyID" />
+            </Principal>
+            <Dependent Role="CandidatePolicy">
+              <PropertyRef Name="PolicyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_128040_group8Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CandidatePolicies" EntityType="Self.CandidatePolicy" />
+          <EntitySet Name="CandidateTables" EntityType="Self.CandidateTable" />
+          <EntitySet Name="PolicyyTables" EntityType="Self.PolicyyTable" />
+          <AssociationSet Name="FK_CandidatePolicy_CandidateTable" Association="Self.FK_CandidatePolicy_CandidateTable">
+            <End Role="CandidateTable" EntitySet="CandidateTables" />
+            <End Role="CandidatePolicy" EntitySet="CandidatePolicies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CandidatePolicy_PolicyyTable" Association="Self.FK_CandidatePolicy_PolicyyTable">
+            <End Role="PolicyyTable" EntitySet="PolicyyTables" />
+            <End Role="CandidatePolicy" EntitySet="CandidatePolicies" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_128040_group8ModelStoreContainer" CdmEntityContainer="DB_128040_group8Entities">
+          <EntitySetMapping Name="CandidatePolicies">
+            <EntityTypeMapping TypeName="DB_128040_group8Model.CandidatePolicy">
+              <MappingFragment StoreEntitySet="CandidatePolicy">
+                <ScalarProperty Name="CandidatePolicyID" ColumnName="CandidatePolicyID" />
+                <ScalarProperty Name="PolicyID" ColumnName="PolicyID" />
+                <ScalarProperty Name="CandidateID" ColumnName="CandidateID" />
+                <ScalarProperty Name="PolicyDescription" ColumnName="PolicyDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CandidateTables">
+            <EntityTypeMapping TypeName="DB_128040_group8Model.CandidateTable">
+              <MappingFragment StoreEntitySet="CandidateTable">
+                <ScalarProperty Name="CandidateWebsite" ColumnName="CandidateWebsite" />
+                <ScalarProperty Name="CandidatePicture" ColumnName="CandidatePicture" />
+                <ScalarProperty Name="CandidateID" ColumnName="CandidateID" />
+                <ScalarProperty Name="CandidateName" ColumnName="CandidateName" />
+                <ScalarProperty Name="CandidateParty" ColumnName="CandidateParty" />
+                <ScalarProperty Name="CandidateAge" ColumnName="CandidateAge" />
+                <ScalarProperty Name="CandidateGender" ColumnName="CandidateGender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PolicyyTables">
+            <EntityTypeMapping TypeName="DB_128040_group8Model.PolicyyTable">
+              <MappingFragment StoreEntitySet="PolicyyTable">
+                <ScalarProperty Name="PolicyID" ColumnName="PolicyID" />
+                <ScalarProperty Name="PolicyName" ColumnName="PolicyName" />
+                <ScalarProperty Name="PolicyDescription" ColumnName="PolicyDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
