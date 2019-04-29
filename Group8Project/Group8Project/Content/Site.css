@@ -1,6 +1,8 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background: rgb(255,34,31);
+    background: linear-gradient(90deg, rgba(255,34,31,0.6395600476518732) 1%, rgba(255,255,255,0.7908205518535539) 47%, rgba(77,117,255,0.39866368910845584) 78%); 
 }
 
 
@@ -36,10 +38,14 @@ textarea {
     padding-top: 20px; 
 }
 
-heaad 
+#heading9 
 {
-    padding-top: 20px; 
-    padding-bottom: 50px; 
+    padding-top: 30px; 
+}
+
+heaad {
+    padding-top: 20px;
+    padding-bottom: 50px;
 }
 
 
