@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DB_128040_group8Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DB_128040_group8Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CandidatePolicy">
           <Key>
             <PropertyRef Name="CandidatePolicyID" />
@@ -23,6 +23,8 @@
           <Property Name="CandidateParty" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="CandidateAge" Type="int" />
           <Property Name="CandidateGender" Type="varchar" MaxLength="50" />
+          <Property Name="CandidatePicture" Type="varchar(max)" />
+          <Property Name="CandidateWebsite" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="PolicyyTable">
           <Key>
@@ -69,8 +71,7 @@
             <End Role="CandidatePolicy" EntitySet="CandidatePolicy" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DB_128040_group8Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -95,6 +96,8 @@
           <Property Name="CandidateAge" Type="Int32" />
           <Property Name="CandidateGender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CandidatePolicies" Relationship="Self.FK_CandidatePolicy_CandidateTable" FromRole="CandidateTable" ToRole="CandidatePolicy" />
+          <Property Name="CandidatePicture" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CandidateWebsite" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="PolicyyTable">
           <Key>
@@ -161,6 +164,8 @@
           <EntitySetMapping Name="CandidateTables">
             <EntityTypeMapping TypeName="DB_128040_group8Model.CandidateTable">
               <MappingFragment StoreEntitySet="CandidateTable">
+                <ScalarProperty Name="CandidateWebsite" ColumnName="CandidateWebsite" />
+                <ScalarProperty Name="CandidatePicture" ColumnName="CandidatePicture" />
                 <ScalarProperty Name="CandidateID" ColumnName="CandidateID" />
                 <ScalarProperty Name="CandidateName" ColumnName="CandidateName" />
                 <ScalarProperty Name="CandidateParty" ColumnName="CandidateParty" />
