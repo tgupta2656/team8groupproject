@@ -8,7 +8,7 @@
 
 
 <table class="table">
-    <tr>
+  <tr>
         <th>
 
             @Html.DisplayNameFor(model => model.CandidatePicture)
@@ -25,36 +25,37 @@
             @Html.DisplayNameFor(model => model.CandidateAge)
         </th>
        
-
-      
-
        
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-      
-        <td>
-            <img style="width:75px; height: 100px; " src="@item.CandidatePicture" />
+<tr>
 
-        </td> 
+    <td>
+        <img style="width:75px; height: 100px; " src="@item.CandidatePicture" />
 
-        <td>
+    </td>
 
-            <a target="_blank" href=@item.CandidateWebsite> @Html.DisplayFor(modelItem => item.CandidateName) </a>
+    <td>
 
-        </td>
+        <a target="_blank" href=@item.CandidateWebsite> @Html.DisplayFor(modelItem => item.CandidateName) </a>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.CandidateParty)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CandidateAge)
-        </td>
-       
+    </td>
+
+    @if (item.CandidateParty == "Democrat")
+    {
+      <td style="color: mediumblue">  @Html.DisplayFor(modelItem => item.CandidateParty) </td>
+    }
+    else
+    {
+     <td style="color:red">  @Html.DisplayFor(modelItem => item.CandidateParty) </td>
+    }
+    <td>
+        @Html.DisplayFor(modelItem => item.CandidateAge)
+    </td>
 
 
-    </tr>
+</tr>
 }
 
 </table>
