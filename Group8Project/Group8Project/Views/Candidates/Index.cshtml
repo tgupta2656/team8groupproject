@@ -9,7 +9,6 @@
 
 <table class="table">
     <tr>
-
         <th>
 
             @Html.DisplayNameFor(model => model.CandidatePicture)
@@ -25,20 +24,19 @@
         <th>
             @Html.DisplayNameFor(model => model.CandidateAge)
         </th>
-        
+       
 
+      
 
-
+       
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-
+      
         <td>
+            <img style="width:75px; height: 100px; " src="@item.CandidatePicture" />
 
-            <img style="width:75px; height:100px"  src="@item.CandidatePicture"/> 
-
-           
         </td> 
 
         <td>
@@ -53,9 +51,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.CandidateAge)
         </td>
-     
-
-
+       
 
 
     </tr>
