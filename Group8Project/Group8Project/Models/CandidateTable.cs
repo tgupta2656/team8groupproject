@@ -25,6 +25,8 @@ namespace Group8Project.Models
         public string CandidateParty { get; set; }
         public Nullable<int> CandidateAge { get; set; }
         public string CandidateGender { get; set; }
+        public string CandidatePicture { get; set; }
+        public string CandidateWebsite { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CandidatePolicy> CandidatePolicies { get; set; }

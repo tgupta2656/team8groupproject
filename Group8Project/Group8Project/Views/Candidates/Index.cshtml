@@ -21,7 +21,16 @@
         <th>
             @Html.DisplayNameFor(model => model.CandidateGender)
         </th>
-        <th></th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.CandidateWebsite) 
+
+        </th>
+
+       
+        <th>
+
+            @Html.DisplayNameFor(model => model.CandidatePicture) 
     </tr>
 
 @foreach (var item in Model) {
@@ -38,7 +47,16 @@
         <td>
             @Html.DisplayFor(modelItem => item.CandidateGender)
         </td>
-        
+        <td>
+            @Html.DisplayFor(modelItem => item.CandidateWebsite)  
+
+        </td>
+
+        <td>
+
+            @Html.DisplayFor(modelItem => item.CandidatePicture) 
+        </td>
+
     </tr>
 }
 
