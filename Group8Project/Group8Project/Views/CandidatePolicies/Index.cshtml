@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Group8Project.Models.CandidatePolicy>
+
+@{
+    ViewBag.Title = "Policies";
+}
+
+<h2>Policies</h2>
+
+
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.CandidateTable.CandidateName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PolicyyTable.PolicyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PolicyDescription)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.CandidateTable.CandidateName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PolicyyTable.PolicyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PolicyDescription)
+        </td> 
+
+    </tr>
+}
+
+</table>
